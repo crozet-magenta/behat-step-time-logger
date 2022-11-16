@@ -51,7 +51,7 @@ final class StepTimeLoggerListener implements EventSubscriberInterface
     public function stepStarted(BeforeStepTested $event)
     {
         if ($this->config->isEnabled()) {
-            $this->stepTimeLogger->logStepStarted(preg_replace('/".*"/U', '...', $event->getStep()->getText()));
+            $this->stepTimeLogger->logStepStarted(substr(preg_replace('/".*"/U', '...', $event->getStep()->getText()), 0, 100);
         }
     }
 
@@ -61,7 +61,7 @@ final class StepTimeLoggerListener implements EventSubscriberInterface
     public function stepFinished(AfterStepTested $event)
     {
         if ($this->config->isEnabled()) {
-            $this->stepTimeLogger->logStepFinished(preg_replace('/".*"/U', '...', $event->getStep()->getText()));
+            $this->stepTimeLogger->logStepFinished(substr(preg_replace('/".*"/U', '...', $event->getStep()->getText()), 0, 100);
         }
     }
 
