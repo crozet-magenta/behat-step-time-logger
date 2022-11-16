@@ -74,6 +74,7 @@ class StepTimeLogger
      */
     public function executionInformationGenerator()
     {
+        uasort($this->executionTimes, function ($a, $b) {return array_sum($a)<=>array_sum($b);});
         foreach ($this->executionTimes as $stepName => $executionTimes) {
             $totalExecutions = count($executionTimes);
             $avgExecutionTime = round(array_sum($executionTimes) / $totalExecutions, 5);
